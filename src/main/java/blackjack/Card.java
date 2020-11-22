@@ -2,7 +2,7 @@ package blackjack;
 
 public class Card implements ICard {
 
-    private CardValue cardValue;
+    private final CardValue cardValue;
 
     public Card(String value) {
         cardValue = CardValue.fromLabel(value);

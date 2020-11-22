@@ -18,8 +18,8 @@ public enum CardValue {
     KING("K", 10),
     ACE("A", 11);
 
-    private String label;
-    private int value;
+    private final String label;
+    private final int value;
 
     CardValue(String label, int value) {
         this.label = label;
