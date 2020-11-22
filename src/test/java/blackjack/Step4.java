@@ -12,9 +12,9 @@ public class Step4 {
 		ICard secondCard = new Card("4");
 		ICard thirdCard = new Card("A");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		assertEquals(15, hand.Points());
-		assertFalse(hand.IsBusted());
+		hand.addCard(thirdCard);
+		assertEquals(15, hand.getPoints());
+		assertFalse(hand.isBusted());
 	}
 
 	@Test
@@ -24,10 +24,10 @@ public class Step4 {
 		ICard thirdCard = new Card("7");
 		ICard fourthCard = new Card("A");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		hand.AddCard(fourthCard);
-		assertEquals(22, hand.Points());
-		assertTrue(hand.IsBusted());
+		hand.addCard(thirdCard);
+		hand.addCard(fourthCard);
+		assertEquals(22, hand.getPoints());
+		assertTrue(hand.isBusted());
 	}
 
 	@Test
@@ -36,9 +36,9 @@ public class Step4 {
 		ICard secondCard = new Card("A");
 		ICard thirdCard = new Card("A");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		assertEquals(13, hand.Points());
-		assertFalse(hand.IsBusted());
+		hand.addCard(thirdCard);
+		assertEquals(13, hand.getPoints());
+		assertFalse(hand.isBusted());
 	}
 
 	@Test
@@ -48,10 +48,10 @@ public class Step4 {
 		ICard thirdCard = new Card("A");
 		ICard lastCard = new Card("A");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		hand.AddCard(lastCard);
-		assertEquals(14, hand.Points());
-		assertFalse(hand.IsBusted());
+		hand.addCard(thirdCard);
+		hand.addCard(lastCard);
+		assertEquals(14, hand.getPoints());
+		assertFalse(hand.isBusted());
 	}
 
 }

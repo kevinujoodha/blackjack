@@ -11,9 +11,9 @@ public class Step3 {
 		ICard firstCard = new Card("A");
 		ICard secondCard = new Card("10");
 		IHand hand = new Hand(firstCard, secondCard);
-		assertEquals(21, hand.Points());
-		assertTrue(hand.IsBlackjack()); 
-		assertFalse(hand.IsBusted());
+		assertEquals(21, hand.getPoints());
+		assertTrue(hand.isBlackJack());
+		assertFalse(hand.isBusted());
 	}
 
 	@Test
@@ -22,10 +22,10 @@ public class Step3 {
 		ICard secondCard = new Card("6");
 		ICard thirdCard = new Card("4");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		assertEquals(21, hand.Points());
-		assertFalse(hand.IsBlackjack());
-		assertFalse(hand.IsBusted());
+		hand.addCard(thirdCard);
+		assertEquals(21, hand.getPoints());
+		assertFalse(hand.isBlackJack());
+		assertFalse(hand.isBusted());
 	}
 
 	@Test
@@ -33,9 +33,9 @@ public class Step3 {
 		ICard firstCard = new Card("A");
 		ICard secondCard = new Card("8");
 		IHand hand = new Hand(firstCard, secondCard);
-		assertEquals(19, hand.Points());
-		assertFalse(hand.IsBlackjack());
-		assertFalse(hand.IsBusted());
+		assertEquals(19, hand.getPoints());
+		assertFalse(hand.isBlackJack());
+		assertFalse(hand.isBusted());
 	}
 
 	@Test
@@ -44,9 +44,9 @@ public class Step3 {
 		ICard secondCard = new Card("10");
 		ICard thirdCard = new Card("2");
 		IHand hand = new Hand(firstCard, secondCard);
-		hand.AddCard(thirdCard);
-		assertFalse(hand.IsBlackjack());
-		assertTrue(hand.IsBusted());
+		hand.addCard(thirdCard);
+		assertFalse(hand.isBlackJack());
+		assertTrue(hand.isBusted());
 	}
 	
 }

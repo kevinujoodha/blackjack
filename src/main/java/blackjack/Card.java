@@ -8,6 +8,7 @@ public class Card implements ICard {
         cardValue = CardValue.fromLabel(value);
     }
 
+    @Override
     public int getPoints() {
         return cardValue.getValue();
     }

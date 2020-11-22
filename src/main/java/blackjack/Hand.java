@@ -1,32 +1,35 @@
 package blackjack;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Hand implements IHand {
-	private ArrayList<ICard> _Cards = new ArrayList<ICard>();
+    private List<ICard> cards = new ArrayList<>();
 	
-	public Hand(ICard firstCard, ICard secondCard){
-		_Cards.add(firstCard);
-		_Cards.add(secondCard);
-	}
-	
-	public int Points() {
-		return 0;
-	}
+    public Hand(ICard firstCard, ICard secondCard) {
+        cards.add(firstCard);
+        cards.add(secondCard);
+    }
 
-	public boolean IsBusted() {
-		return false;
-	}
+    @Override
+    public int getPoints() {
+        return cards.stream()
+                .mapToInt(ICard::getPoints)
+                .sum();
+    }
 
-	public boolean IsBlackjack() {
-		return false;
-	}
+    @Override
+    public boolean isBusted() {
+        return false;
+    }
 
-	public void AddCard(ICard card) {
-		
-	}
-	
-	private int getPoint(){
-        return 0;
+    @Override
+    public boolean isBlackJack() {
+        return false;
+    }
+
+    @Override
+    public void addCard(ICard card) {
+        cards.add(card);
     }
 }
