@@ -7,9 +7,10 @@ public class Hand implements IHand {
 
     private static final int BLACK_JACK_POINTS = 21;
     private static final int NUMBER_OF_CARDS_FOR_BLACK_JACK = 2;
+    public static final int ACE_VALUE_AFTER_BUSTED = 1;
 
     private final List<ICard> cards = new ArrayList<>();
-	
+
     public Hand(ICard firstCard, ICard secondCard) {
         cards.add(firstCard);
         cards.add(secondCard);
@@ -17,9 +18,15 @@ public class Hand implements IHand {
 
     @Override
     public int getPoints() {
-        return cards.stream()
-                .mapToInt(ICard::getPoints)
-                .sum();
+        int sum = 0;
+        for (ICard card : cards) {
+            if ((sum + card.getPoints()) > BLACK_JACK_POINTS && card.isAce()) {
+                sum += ACE_VALUE_AFTER_BUSTED;
+            } else {
+                sum += card.getPoints();
+            }
+        }
+        return sum;
     }
 
     @Override

@@ -12,4 +12,10 @@ public class Card implements ICard {
     public int getPoints() {
         return cardValue.getValue();
     }
+
+    @Override
+    public boolean isAce() {
+        return CardValue.ACE == cardValue;
+    }
+
 }
