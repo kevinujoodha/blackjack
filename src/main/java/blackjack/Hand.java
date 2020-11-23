@@ -19,13 +19,23 @@ public class Hand implements IHand {
     @Override
     public int getPoints() {
         int sum = 0;
+        int nbAces = 0;
         for (ICard card : cards) {
-            if ((sum + card.getPoints()) > BLACK_JACK_POINTS && card.isAce()) {
-                sum += ACE_VALUE_AFTER_BUSTED;
+            if (card.isAce()) {
+                nbAces++;
             } else {
                 sum += card.getPoints();
             }
         }
+
+        for (int i = 0; i < nbAces; i++) {
+            if ((sum + CardValue.ACE.getValue()) > BLACK_JACK_POINTS) {
+                sum += ACE_VALUE_AFTER_BUSTED;
+            } else {
+                sum += CardValue.ACE.getValue();
+            }
+        }
+
         return sum;
     }
 

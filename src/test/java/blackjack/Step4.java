@@ -54,4 +54,13 @@ public class Step4 {
 		assertFalse(hand.isBusted());
 	}
 
+	@Test
+	public void testAndrei(){
+		ICard firstCard = new Card("A");
+		ICard secondCard = new Card("10");
+		ICard thirdCard = new Card("2");
+		IHand hand = new Hand(firstCard, secondCard);
+		hand.addCard(thirdCard);
+		assertEquals(13, hand.getPoints());
+	}
 }
